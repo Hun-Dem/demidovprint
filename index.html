@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Типография ИП Демидов С.С.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta name="description" content="Типография ИП Демидов С.С. – печатные услуги: визитки, листовки, буклеты, баннеры, плакаты, наклейки. Заказ онлайн с калькулятором стоимости." />
+  <meta name="keywords" content="типография, печать, визитки, листовки, буклеты, баннеры, плакаты, наклейки, заказ печати" />
+  <meta name="author" content="ИП Демидов С.С." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=mfQMZ2wu3AqWUkfBfZQMl_Z_ZkQ8rGt9OcHk1YwSUFKam49jrwMG1tbku5hnf7LeN2fuROuqGPDc64FDGOZFa-JG0-pLN8IyD-eiKO8lVTXKiTIPIRvEhcmGoV23w5v3DnUP2Hx-VERfdS-_2iIFFqRkdq6qUSxYUSGeBUtI-CEp-58maXdusP1wzEL2TYo_" charset="UTF-8"></script><style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #333;
+    }
+    header {
+      padding: 1.5rem;
+      background: #f9f9f9;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    #auth-buttons {
+      position: flex;
+      top: 1rem;
+      right: 1rem;
+    }
+    #auth-buttons button {
+      margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #2e7d32;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #auth-buttons button:hover {
+      background: #1b5e20;
+    }
+    #user-info {
+      position: flex;
+      top: 1rem;
+      right: 7rem;
+      color: #2e7d32;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #profile-btn {
+      position: flex;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #004a99;
+      color: white;
+      cursor: pointer;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+    .card p {
+      flex-grow: 1;
+      text-align: center;
+      margin: 0 0 1rem 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #eee;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    form label {
+      display: block;
+      margin: 0.8rem 0 0.3rem 0;
+      font-weight: 600;
+    }
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    form button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: #1b5e20;
+    }
+    #order-message {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: green;
+      min-height: 1.2em;
+    }
+    #order-error {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: red;
+      min-height: 1.2em;
+    }
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+	form input[type="file"] {
+	  display: block;
+	  width: 100%;
+	  margin: 0.5rem 0 1rem;
+	  padding: 0.5rem;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  box-sizing: border-box;
+	}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Типография ИП Демидов С.С.</h1>
+    <div id="user-info" style="display:none;"></div>
+  <button id="profile-btn" style="display:none;">Личный кабинет</button> 
+ <div id="auth-buttons">
+    <button id="login-btn">Войти с Google</button>
+    <button id="logout-btn" style="display:none;">Выйти</button>
+  </div>
+
+
+</header>
+<main id="products-container" aria-label="Товары типографии">
+</main>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Закрыть">×</button>
+    <h2 id="modal-title"></h2>
+    <img id="modal-image" src="" alt="" style="width: 100%; max-height: 200px; object-fit: contain; border-radius: 8px; margin-bottom: 1rem;" />
+    <p id="modal-description"></p>
+    <form id="order-form">
+      <label for="quantity">Количество:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="100" required />
+      <label for="phone">Телефон:</label>
+      <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+      <label for="comment">Комментарий к заказу (необязательно):</label>
+	<textarea id="comment" name="comment" rows="3"></textarea>
+
+	<label for="file">Загрузить макет (png, jpg):</label>
+	<input type="file" id="file" accept="image/*" />
+	<div id="file-error" style="color:red; font-size:0.9rem;"></div>
+      <div class="calc-row">Цена за штуку: <span id="pricePerUnit"></span> ₽</div>
+      <div class="calc-row">Итого: <span id="totalPrice"></span> ₽</div>
+      <button type="submit">Отправить заказ</button>
+      <div id="order-message" role="alert" aria-live="polite"></div>
+      <div id="order-error" role="alert" aria-live="assertive"></div>
+    </form>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  const firebaseConfig = {
+    apiKey: "AIzaSyDctrBm0tQySVPUNwox37KeFiLFjXTNiUE",
+    authDomain: "demidovprint.firebaseapp.com",
+    projectId: "demidovprint",
+    storageBucket: "demidovprint.appspot.com",
+    messagingSenderId: "405119423059",
+    appId: "1:405119423059:web:0e8f3afd61bbd61126aca6",
+    measurementId: "G-RTWE3M98YL"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const storage   = firebase.storage();
+  const fileInput = document.getElementById('file');
+  const fileError = document.getElementById('file-error');
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const loginBtn = document.getElementById('login-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const userInfo = document.getElementById('user-info');
+  const profileBtn = document.getElementById('profile-btn');
+  loginBtn.onclick = () => {
+    auth.signInWithPopup(provider).catch(e => alert('Ошибка входа: ' + e.message));
+  };
+  logoutBtn.onclick = () => {
+    auth.signOut();
+  };
+  profileBtn.onclick = () => {
+    window.location.href = '/profile.html';
+  };
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      loginBtn.style.display = 'none';
+      logoutBtn.style.display = 'inline-block';
+      userInfo.style.display = 'inline-block';
+      userInfo.textContent = user.displayName || user.email;
+      profileBtn.style.display = 'inline-block';
+    } else {
+      loginBtn.style.display = 'inline-block';
+      logoutBtn.style.display = 'none';
+      userInfo.style.display = 'none';
+      userInfo.textContent = '';
+      profileBtn.style.display = 'none';
+    }
+  });
+  const products = [
+    {
+      id: 'visiting_cards',
+      name: 'Визитки',
+      description: 'Качественные визитки на плотной бумаге с матовой или глянцевой ламинацией.',
+      pricePerUnit: 5,
+      image: 'images/visiting_cards.jpg',
+    },
+    {
+      id: 'flyers',
+      name: 'Листовки',
+      description: 'Яркие листовки с привлекательным дизайном для рекламы и информации.',
+      pricePerUnit: 3,
+      image: 'images/flyers.jpg',
+    },
+    {
+      id: 'booklets',
+      name: 'Буклеты',
+      description: 'Многостраничные буклеты с вашим фирменным стилем и информацией.',
+      pricePerUnit: 15,
+      image: 'images/booklets.jpg',
+    },
+    {
+      id: 'banners',
+      name: 'Баннеры',
+      description: 'Прочные баннеры для наружной и внутренней рекламы.',
+      pricePerUnit: 50,
+      image: 'images/banners.jpg',
+    },
+    {
+      id: 'posters',
+      name: 'Плакаты',
+      description: 'Яркие плакаты большого формата для презентаций и мероприятий.',
+      pricePerUnit: 40,
+      image: 'images/posters.jpg',
+    },
+    {
+      id: 'stickers',
+      name: 'Наклейки',
+      description: 'Разнообразные наклейки на разные поверхности, любые тиражи.',
+      pricePerUnit: 8,
+      image: 'images/stickers.jpg',
+    },
+  ];
+  const productsContainer = document.getElementById('products-container');
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-pressed', 'false');
+    card.setAttribute('aria-label', `Товар ${product.name}`);
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+    `;
+    card.addEventListener('click', () => openModal(product));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(product);
+      }
+    });
+    productsContainer.appendChild(card);
+  });
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalImage = document.getElementById('modal-image');
+  const modalDescription = document.getElementById('modal-description');
+  const orderForm = document.getElementById('order-form');
+  const quantityInput = document.getElementById('quantity');
+  const phoneInput = document.getElementById('phone');
+  const pricePerUnitSpan = document.getElementById('pricePerUnit');
+  const totalPriceSpan = document.getElementById('totalPrice');
+  const orderMessage = document.getElementById('order-message');
+  const orderError = document.getElementById('order-error');
+  let currentProduct = null;
+  let formDirty = false;
+  orderForm.addEventListener('input', () => {
+    formDirty = true;
+  });
+  function openModal(product) {
+    currentProduct = product;
+    modalTitle.textContent = product.name;
+    modalImage.src = product.image;
+    modalImage.alt = product.name;
+    modalDescription.textContent = product.description;
+    pricePerUnitSpan.textContent = product.pricePerUnit.toFixed(2);
+    quantityInput.value = 100;
+    phoneInput.value = '';
+    updateTotalPrice();
+    orderMessage.textContent = '';
+    orderError.textContent = '';
+    modal.classList.add('active');
+    quantityInput.focus();
+  }
+  function closeModal() {
+    if (formDirty) {
+      if (!confirm('У вас есть несохранённые изменения. Вы действительно хотите закрыть окно?')) {
+        return;
+      }
+    }
+    formDirty = false;
+    modal.classList.remove('active');
+  }
+  document.querySelector('.modal-close').addEventListener('click', closeModal);
+  window.addEventListener('click', e => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  quantityInput.addEventListener('input', updateTotalPrice);
+  function updateTotalPrice() {
+    let qty = parseInt(quantityInput.value);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    const total = qty * currentProduct.pricePerUnit;
+    totalPriceSpan.textContent = total.toFixed(2);
+  }
+  orderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    orderMessage.textContent = '';
+    orderError.textContent = '';
+    const user = auth.currentUser;
+    if (!user) {
+      orderError.textContent = 'Пожалуйста, войдите через Google, чтобы сделать заказ.';
+      return;
+    }
+    const quantity = parseInt(quantityInput.value);
+    const phone = phoneInput.value.trim();
+    const comment = document.getElementById('comment').value.trim();
+    if (!phone) {
+      orderError.textContent = 'Пожалуйста, введите номер телефона.';
+      phoneInput.focus();
+      return;
+    }
+    if (isNaN(quantity) || quantity < 1) {
+      orderError.textContent = 'Введите корректное количество.';
+      quantityInput.focus();
+      return;
+    }
+    const totalPrice = quantity * currentProduct.pricePerUnit;
+    try {
+	  // 1) Проверим выбран ли файл
+	  let fileUrl = '';
+	  const file = fileInput.files[0];
+	  if (file) {
+		// Ограничим размер (например, 5 МБ)
+		if (file.size > 5 * 1024 * 1024) {
+		  fileError.textContent = 'Файл слишком большой (макс. 5 МБ).';
+		  return;
+		}
+		// Сбросим ошибку
+		fileError.textContent = '';
+		// 2) Загрузим в Storage в папку orders/{orderId}/
+		const storageRef = storage.ref();
+		const fileRef = storageRef.child(`orders/${user.uid}/${Date.now()}_${file.name}`);
+		const snapshot = await fileRef.put(file);
+		fileUrl = await snapshot.ref.getDownloadURL();
+	  }
+
+	  // 3) Сохраняем заказ вместе с URL файла (или пустую строку)
+	  await db.collection('orders').add({
+		userId: user.uid,
+		userEmail: user.email,
+		productId: currentProduct.id,
+		productName: currentProduct.name,
+		quantity,
+		pricePerUnit: currentProduct.pricePerUnit,
+		totalPrice,
+		phone,
+		comment,
+		fileUrl,          // здесь ссылка на загруженный макет
+		status: 'Новый',
+		createdAt: firebase.firestore.FieldValue.serverTimestamp()
+	  });
+
+	  orderMessage.textContent = 'Заказ успешно отправлен! Спасибо.';
+	  // ...
+	} catch (error) {
+	  orderError.textContent = 'Ошибка при отправке заказа: ' + error.message;
+	}
+
+  });
+</script>
+</body>
+</html>
